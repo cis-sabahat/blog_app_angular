@@ -1,0 +1,14 @@
+<!-- NAVIGATION -->
+<nav class="navbar navbar-inverse" role="navigation" ng-controller='headerController'>
+  <div class="navbar-header">
+    <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li><a ui-sref="home">Home</a></li>
+    <li ng-if="isLogin" ><a ui-sref="posts">MyPosts</a></li>
+    <!-- <li ng-if="isLogin" ><a ui-sref="home.paragraph">AllPost</a></li> -->
+    <li ng-if="isLogin"><a ng-click='signout()'>Sign out</a></li>
+    <li ng-if="isLogin"><a ui-sref="profile">Profile</a></li>
+    <li ng-if="!isLogin"><a ui-sref="login">Login</a></li>
+  </ul>
+</nav>

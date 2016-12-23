@@ -1,0 +1,18 @@
+<div class="row" data-ng-init="getAllPost()">
+  <!-- COLUMN ONE NAMED VIEW -->
+  <div class="col-sm-6">
+    <ul class="list-group">
+		  <li class="list-group-item" ng-repeat="post in posts">
+		    <a ui-sref="post({ post_id: post.id })">{{post.title}}</a>
+		  </li>
+		</ul>
+  </div>
+  <!-- COLUMN TWO NAMED VIEW -->
+  <div class="col-sm-6">
+    <button ng-click="togglePostForm()">Add Post</button>
+       <!-- <div ui-view="form"></div> -->
+      <div ng-include="'post_form.html'"></div>
+   </div>
+  </div>
+</div>  
+

@@ -1,0 +1,11 @@
+<div class="row">
+  <!-- COLUMN ONE NAMED VIEW -->
+    <ul class="list-group">
+			<li class="list-group-item" ng-repeat="post in posts">
+			    <a ui-sref="post({ post_id: post.id })">{{post.title}}</a>
+			    <p ng-if='isLogin'>
+			    	<span ng-class="check_like(post)? 'glyphicon-thumbs-down' : 'glyphicon-thumbs-up'" class="glyphicon" aria-hidden="true" ng-click="like(post, check_like(post) )"></span>
+			    </p>
+			</li>
+		</ul>
+</div>  

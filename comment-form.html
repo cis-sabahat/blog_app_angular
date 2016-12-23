@@ -1,0 +1,7 @@
+<form ng-submit="addComment(comment)" role="form" ng-controller="commentCtrl">
+  <div class="form-group">
+    <input type="text" name="body" ng-model="comment.body" required="required" class="form-control"/>
+    <input type="hidden" name="blog_id" ng-model="comment.blog_id" required="required" class="form-control"/>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg">Comment</button>
+</form>

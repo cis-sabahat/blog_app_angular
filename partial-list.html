@@ -1,0 +1,31 @@
+<div class="col-xs-12 col-md-8" ng-controller = "authenticationCtrl">
+	<form name="myform" ng-submit="submitRegistration(registrationForm)" class="form-horizontal" role="form" ng-init="registrationForm = {}" novalidate>
+		<fieldset class="form-group">
+      <label for="user_name">User Name</label>
+			<input type="text" name="name" ng-model="registrationForm.name" placeholder="Enter user name" class="form-control" required>
+			<small><p ng-show = "myform.name.$touched && myform.name.$invalid" style="color:red;">Please enter name</p></small>
+		</fieldset>
+		<fieldset class="form-group">
+			<label for="email">Email</label>
+			<input type="email" name="email" ng-model="registrationForm.email" placeholder="Enter user email" class="form-control" required>
+			<small><p ng-show= "!myform.email.$pristine && myform.email.$touched && myform.email.$error.required" style="color:red;">Please enter email</p>
+			<span ng-show="myform.email.$error.email" style="color:red;">Invalid email address.</span>
+ 			</span></small>
+		</fieldset>
+		<fieldset class="form-group">
+      <label for="user_name">Password</label>
+			<input type="password" name="password" ng-model="registrationForm.password" placeholder="Password" class="form-control" required ng-minlength="8">
+			<small>
+			 	<span class="error" ng-show="myform.password.$error.minlength">
+        			Too short (min 8 characters)!</span>
+				<p ng-show = "!myform.password.$pristine && myform.password.$invalid" style="color:red;">Please enter password</p></small>
+		</fieldset>
+		<fieldset class="form-group">
+      <label for="user_name">Password Confirmation</label>
+			<input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" placeholder="Re-enter Password" class="form-control" required compare-to = "registrationForm.password">
+			<small><p ng-show = "!myform.password_confirmation.$pristine && myform.password_confirmation.$invalid" style="color:red;">Please enter confirmation password</p>
+			<p ng-show = "myform.password_confirmation.$error.compareTo" style="color:red;">Password doesn't match</p></small>
+		</fieldset>
+		<input class= "btn btn-primary" ng-disabled="myform.$invalid" type="submit" value="sign-up" />
+	</form>
+</div>
